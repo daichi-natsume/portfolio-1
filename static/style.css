@@ -1,0 +1,100 @@
+html {
+  color: #5F5F5F ;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  -ms-overflow-style: none;
+  -moz-overflow-style: none;
+  scrollbar-width: none;
+  display: none;
+}
+
+::placeholder {
+  font-size: 0.625rem;
+}
+
+:focus {
+  outline: none;
+}
+
+.shrink {
+  flex-shrink: 0;
+}
+
+.open{
+  animation:fadeIn .2s ease-in-out;
+  }
+
+@keyframes fadeIn{
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .close{
+    animation:fadeOut .2s ease-in-out;
+      }
+
+@keyframes fadeOut{
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+.swiper-slide-prev,.swiper-slide-next {
+  opacity: 0.4;
+  overflow: hidden;
+  transform: scale(0.9) !important;
+}
+.swiper-slide-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.swiper-pagination {
+  position: relative;
+  padding-top: 1rem;
+}
+.swiper-pagination-bullet {
+  background: #6B6B6B;
+}
+
+.swiper-pagination-bullet-active {
+  background: #947771;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-size: contain;
+  content: "";
+  height: 2rem;
+  width: 2rem;
+}
+
+.swiper-button-prev {
+  background-image: url(/icon/brand-detail/leftArrow.png);
+}
+
+.swiper-button-next {
+  background-image: url(/icon/brand-detail/rightArrow.png);
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  content: none;
+}
+
+.accent-brown {
+  accent-color: #947771;
+}
+
+.brown-placeholder::placeholder {
+  color: rgb(149,119,113,0.5);
+}
