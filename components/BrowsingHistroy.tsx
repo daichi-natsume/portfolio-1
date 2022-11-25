@@ -29,7 +29,7 @@ export function BrowsingHistory(props: Props) {
         <Title title="閲覧履歴" />
         <SearchBox />
         <ResultNumber displayNumStart={16} displayNumEnd={30} totalNum={45} />
-        <div class="border border-t">
+        <div class="border-t">
           {brands.map(() => <TripleBrand brandList={data.brandDataList} />)}
         </div>
         <PageNation displayNumStart={2} displayNumEnd={3} />

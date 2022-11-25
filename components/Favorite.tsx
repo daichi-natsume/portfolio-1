@@ -48,7 +48,7 @@ export function Favorite(props: Props) {
           name={name}
           onClick={toggleFunction}
         />
-        <div class="border border-t">
+        <div class="border-t">
           {brands.map(() => (
             <FavTripleBrand brandList={data.brandDataList} dastBox={dastBox} />
           ))}
