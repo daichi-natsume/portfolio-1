@@ -153,7 +153,6 @@ export default function islands() {
         <Permission />
         <Button
           name="確認画面へ"
-          arrow="right"
           link="/registration/confirmation"
           klass="my-12"
           h10_w72={true}

@@ -73,11 +73,10 @@ export function Button(props: Props) {
       {props.arrow == "right"
         ? (
           <img
-            src={`${props.white ? "/icon/common/arrow/brownRight.png" : ""}${
-              props.brown || !props.disabled || props.disabled
-                ? "/icon/common/arrow/whiteRight.png"
-                : ""
-            }${props.gray ? "/icon/common/arrow/grayRight.png" : ""}
+            src={`
+            ${props.white ? "/icon/common/arrow/brownRight.png" : ""}
+            ${props.brown ? "/icon/common/arrow/whiteRight.png" : ""}
+            ${props.gray ? "/icon/common/arrow/grayRight.png" : ""}
             `}
             alt="右矢印"
             class="h-2 w-2 mr-4"
@@ -87,9 +86,7 @@ export function Button(props: Props) {
       {props.arrow == "down"
         ? (
           <img
-            src={`
-            ${props.white ? "/icon/common/arrow/brownDown.png" : ""}
-            `}
+            src={`${props.white ? "/icon/common/arrow/brownDown.png" : ""}`}
             alt="下矢印"
             class="h-2 w-2 mr-4"
           />
