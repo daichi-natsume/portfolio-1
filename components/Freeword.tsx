@@ -4,10 +4,7 @@ import { AllData } from "../routes/search-genre.tsx";
 import { SearchBoxHeader } from "../components/common/Header.tsx";
 import { ResultNumber } from "../components/common/others/ResultNumber.tsx";
 import { ResultBrand } from "../components/common/Brand.tsx";
-import {
-  AccodionButton,
-  FreeWhiteButton,
-} from "../components/common/Button.tsx";
+import { AccodionButton, Button } from "../components/common/Button.tsx";
 import { PageNation } from "../components/common/others/PageNation.tsx";
 import { LongFooter } from "../components/common/Footer.tsx";
 
@@ -30,10 +27,11 @@ export function Freeword(props: Props) {
       <main>
         <ResultNumber displayNumStart={11} displayNumEnd={20} totalNum={275} />
         <div class="flex mx-4 my-4">
-          <FreeWhiteButton
+          <Button
+            white={true}
+            klass="h-10 w-1/2 mr-2"
             name="絞り込む"
-            onClickButton={props.onClickButton}
-            klass="h-10 w-1/2 mr-2 text-xs rounded"
+            onClick={props.onClickButton}
           />
           <AccodionButton
             name="表示順"

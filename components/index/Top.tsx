@@ -7,7 +7,7 @@ import MainBanners from "../../components/Banner.tsx";
 import { Leading } from "../common/others/Leading.tsx";
 import { Genre } from "./Genre.tsx";
 import { BrandList, BrandRanking } from "../common/Brand.tsx";
-import { WhiteButton } from "../common/Button.tsx";
+import { Button } from "../common/Button.tsx";
 import { Info } from "./Info.tsx";
 import { Inquiry } from "../common/others/Inquiry.tsx";
 import { SNSAccount } from "../common/others/SNSAccount.tsx";
@@ -63,7 +63,13 @@ export class Top extends Component<Props, AllData> {
 
           <Leading title="特集コンテンツ" />
           <FeatureContents />
-          <WhiteButton name="特集コンテンツをもっと見る" arrow="right" klass="mt-4" />
+          <Button
+            white={true}
+            h10_w72={true}
+            klass="mt-4"
+            name="特集コンテンツをもっと見る"
+            arrow="right"
+          />
 
           <Leading title="お知らせ" linkName="新着情報一覧" more={true} />
           <Info infoList={data.infoList} />

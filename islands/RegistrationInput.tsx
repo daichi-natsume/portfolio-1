@@ -4,11 +4,7 @@ import { Title } from "../components/common/screen-title/Title.tsx";
 import { StepBar } from "../components/registration/StepBar.tsx";
 import { Permission } from "../components/registration/Permission.tsx";
 import { BgLeading, SubLeading } from "../components/common/others/Leading.tsx";
-import {
-  FreeBrownButton,
-  FreeButton,
-  RadioButton,
-} from "../components/common/Button.tsx";
+import { Button, RadioButton } from "../components/common/Button.tsx";
 import {
   Checkbox,
   HiddenInput,
@@ -105,7 +101,12 @@ export default function islands() {
           />
           <div class="flex">
             <Input placeholder="0000000" klass="ml-8 mr-2 w-24" />
-            <FreeBrownButton name="住所検索" klass="h-10 w-24 text-xs rounded" />
+            <Button
+              brown={true}
+              no_mx_auto={true}
+              klass="h-10 w-24"
+              name="住所検索"
+            />
           </div>
           <SubLeading title="都道府県" mandatory={true} />
           <Input placeholder="都道府県" klass="w-72 ml-8" />
@@ -150,11 +151,13 @@ export default function islands() {
           </div>
         </div>
         <Permission />
-        <FreeButton
+        <Button
           name="確認画面へ"
           arrow="right"
           link="/registration/confirmation"
           klass="my-12"
+          h10_w72={true}
+          disabled={true}
         />
       </main>
     </>

@@ -2,7 +2,7 @@ import { BrownHeader } from "../components/common/Header.tsx";
 import { Title } from "../components/common/screen-title/Title.tsx";
 import { ConfirmMsg } from "../components/common/others/ConfirmMsg.tsx";
 import { BgLeading, Leading } from "../components/common/others/Leading.tsx";
-import { BrownButton, WhiteButton } from "../components/common/Button.tsx";
+import { Button } from "../components/common/Button.tsx";
 
 const cancelInfo = [
   { title: "ブランド名", info: "オリジン弁当" },
@@ -34,10 +34,12 @@ export default function islands() {
             </>
           ))}
         </div>
-        <BrownButton
+        <Button
           link="/brand/cancel/completion"
-          name="申請をキャンセルする"
+          brown={true}
+          h10_w72={true}
           klass="my-12"
+          name="申請をキャンセルする"
         />
         <Leading title="申請者情報" />
         <div class="border-b">
@@ -48,16 +50,20 @@ export default function islands() {
             </>
           ))}
         </div>
-        <BrownButton
+        <Button
           link="/brand/cancel/completion"
-          name="申請をキャンセルする"
+          brown={true}
+          h10_w72={true}
           klass="mt-12 mb-2"
+          name="申請をキャンセルする"
         />
-        <WhiteButton
+        <Button
           link="/brand/brand-detail"
+          white={true}
+          h10_w72={true}
+          klass="mb-12"
           name="戻る"
           arrow="left"
-          klass="mb-12"
         />
       </main>
     </>

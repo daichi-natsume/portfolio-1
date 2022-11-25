@@ -3,7 +3,7 @@
 import { BrandData } from "../shared/server/brand.ts";
 import { LoginHeader } from "./common/Header.tsx";
 import { Title } from "./common/screen-title/Title.tsx";
-import { BlackButton } from "./common/Button.tsx";
+import { Button } from "./common/Button.tsx";
 import { Leading } from "./common/others/Leading.tsx";
 import { ScrollFavBrand } from "./common/scroll/Scroll.tsx";
 import { BorderLinkList } from "./common/others/LinkList.tsx";
@@ -34,17 +34,21 @@ export function Mypage(props: Props) {
       <main>
         <Title title="マイページ" />
         <p class="text-center my-4">グルメ商店さま</p>
-        <BlackButton
-          name="契約中ブランド一覧"
+        <Button
           link="/mypage/under-contract"
-          arrow="right"
+          gray={true}
+          h10_w72={true}
           klass="mb-2"
+          name="契約中ブランド一覧"
+          arrow="right"
         />
-        <BlackButton
-          name="申請中ブランド一覧"
+        <Button
           link="/mypage/applying"
-          arrow="right"
+          gray={true}
+          h10_w72={true}
           klass="mb-2"
+          name="申請中ブランド一覧"
+          arrow="right"
         />
         <div class="w-72 flex mx-auto mt-2 justify-end">
           <p class="text-2.5">

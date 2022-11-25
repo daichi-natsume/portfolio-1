@@ -1,4 +1,4 @@
-import { BrownButton, FreeBrownButton, FreeWhiteButton } from "./Button.tsx";
+import { Button } from "./Button.tsx";
 import { Favorite } from "./Favorite.tsx";
 import { ScrollBrandPhotos } from "./scroll/Scroll.tsx";
 
@@ -24,7 +24,7 @@ interface Props {
   visited?: boolean; //TripleBrand関数で閲覧履歴画面の表示に使う
 }
 
-//人気ブランドランキングで使うブランド単体のカセット
+//マイページのお気に入りブランドランキングで使うブランド単体のカセット
 export function FavBrand(props: Props) {
   return (
     <a href="/brand/brand-detail">
@@ -37,10 +37,11 @@ export function FavBrand(props: Props) {
         <div class="w-48 mt-2">
           <p class="text-sm">{props.brandName}</p>
           <p class="my-0.5 text-2.5">ジャンル：{props.genre}</p>
-          <FreeBrownButton
-            name="申請する"
+          <Button
             link="brand/application/confirmation"
-            klass="h-6 w-11/12 text-2.5 rounded"
+            brown={true}
+            klass="h-6 w-11/12 text-2.5"
+            name="申請する"
           />
         </div>
       </div>
@@ -126,11 +127,13 @@ export function ResultBrand(props: Props) {
             <Favorite />
           </div>
           <ScrollBrandPhotos imgs={list.imgs} />
-          <BrownButton
-            name="ブランド詳細ページへ"
+          <Button
             link="/brand/brand-detail"
-            arrow="right"
+            brown={true}
+            h10_w72={true}
             klass="mb-4"
+            name="ブランド詳細ページへ"
+            arrow="right"
           />
         </div>
       ))}
@@ -157,15 +160,16 @@ export function TripleBrand(props: Props) {
             <p class="text-sm ml-2 mb-1">{brand.name}</p>
             <p class="ml-2">{brand.genre}</p>
             <div class="flex items-center justify-center my-2">
-              <FreeBrownButton
-                name="申請する"
+              <Button
                 link="/brand/application/confirmation"
-                klass="h-6 w-20 rounded"
+                brown={true}
+                klass="h-6 w-20 text-2.5"
+                name="申請する"
               />
               <img
                 src="/icon/common/four-icons/favorite-brown.png"
                 alt="お気に入りボタン"
-                class="w-4 h-4 ml-2"
+                class="w-4 h-4 mr-2"
               />
             </div>
           </a>
@@ -202,19 +206,21 @@ export function FavTripleBrand(props: Props) {
                 />
               )
               : (
-                <FreeBrownButton
-                  name="申請する"
+                <Button
                   link="/brand/application/confirmation"
-                  klass="h-6 w-5/6 mx-auto my-2 rounded"
+                  brown={true}
+                  klass="h-6 w-5/6 my-2"
+                  name="申請する"
                 />
               )}
             {props.visited
               ? (
                 <div class="flex items-center justify-center my-2">
-                  <FreeBrownButton
-                    name="申請する"
+                  <Button
                     link="/brand/application/confirmation"
-                    klass="h-6 w-20 rounded"
+                    brown={true}
+                    klass="h-6 w-20 text-2.5"
+                    name="申請する"
                   />
                   <img
                     src="/icon/common/four-icons/favorite-brown.png"
@@ -262,30 +268,35 @@ export function ApplyBrand(props: Props) {
           </a>
           {brand.status == 1
             ? (
-              <BrownButton
-                name="フランチャイズ契約する"
+              <Button
                 link="/brand/contract/confirmation"
+                brown={true}
+                h10_w72={true}
                 klass="mb-2"
+                name="フランチャイズ契約する"
               />
             )
             : null}
           {brand.status == 0 || brand.status == 1 || brand.status == 3
             ? (
-              <FreeWhiteButton
-                name={statusList[brand.status].button}
+              <Button
                 link={brand.status == 0 || brand.status == 1
                   ? "/brand/cancel/confirmation"
                   : "/brand/cancel-contract/confirmation"}
-                klass="w-72 h-6 text-xs mb-2 rounded"
+                white={true}
+                klass="w-72 h-6 mb-2"
+                name={statusList[brand.status].button}
               />
             )
             : null}
           {brand.status == 2 || brand.status == 4
             ? (
-              <BrownButton
-                name={statusList[brand.status].button}
+              <Button
                 link="/brand/application/confirmation"
+                brown={true}
+                h10_w72={true}
                 klass="mb-2"
+                name={statusList[brand.status].button}
               />
             )
             : null}

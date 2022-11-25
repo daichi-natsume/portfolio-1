@@ -7,7 +7,7 @@ import { SearchBox } from "../components/common//input/SearchBox.tsx";
 import { ResultNumber } from "../components/common/others/ResultNumber.tsx";
 import { TripleBrand } from "../components/common/Brand.tsx";
 import { PageNation } from "../components/common/others/PageNation.tsx";
-import { WhiteButton } from "../components/common/Button.tsx";
+import { Button } from "../components/common/Button.tsx";
 import { Footer } from "../components/common//Footer.tsx";
 
 interface Props {
@@ -33,7 +33,13 @@ export function BrowsingHistory(props: Props) {
           {brands.map(() => <TripleBrand brandList={data.brandDataList} />)}
         </div>
         <PageNation displayNumStart={2} displayNumEnd={3} />
-        <WhiteButton name="もっとブランドを探す" link="/" klass="mt-4" />
+        <Button
+          link="/"
+          white={true}
+          h10_w72={true}
+          klass="mt-4"
+          name="もっとブランドを探す"
+        />
       </main>
       <Footer />
     </div>

@@ -5,7 +5,7 @@ import { LoginHeader } from "../components/common/Header.tsx";
 import { Title } from "../components/common/screen-title/Title.tsx";
 import { SearchBox } from "../components/common/input/SearchBox.tsx";
 import { BgLeading } from "../components/common/others/Leading.tsx";
-import { RadioButton, WhiteButton } from "../components/common/Button.tsx";
+import { Button, RadioButton } from "../components/common/Button.tsx";
 import { ApplyBrand } from "../components/common/Brand.tsx";
 import { Footer } from "../components/common/Footer.tsx";
 
@@ -34,7 +34,13 @@ export function Applying(props: Props) {
         <ApplyBrand brandList={data.brandDataList} />
         <BgLeading title="2022年10月25日" />
         <ApplyBrand brandList={data.brandDataList} />
-        <WhiteButton name="申請中のブランドをもっと見る" arrow="down" klass="mt-4" />
+        <Button
+          white={true}
+          h10_w72={true}
+          klass="mt-4"
+          name="申請中のブランドをもっと見る"
+          arrow="down"
+        />
       </main>
       <Footer />
     </div>

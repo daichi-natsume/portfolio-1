@@ -3,7 +3,7 @@ import { Title } from "../components/common/screen-title/Title.tsx";
 import { StepBar } from "../components/registration/StepBar.tsx";
 import { ConfirmMsg } from "../components/common/others/ConfirmMsg.tsx";
 import { BgLeading } from "../components/common/others/Leading.tsx";
-import { BrownButton, WhiteButton } from "../components/common/Button.tsx";
+import { Button } from "../components/common/Button.tsx";
 
 export default function islands() {
   const inputInfo = [
@@ -37,16 +37,20 @@ export default function islands() {
           </>
         ))}
       </div>
-      <BrownButton
-        name="登録する"
+      <Button
         link="/registration/completion"
+        brown={true}
+        h10_w72={true}
         klass="mt-12 mb-2"
+        name="登録する"
       />
-      <WhiteButton
+      <Button
+        link="/registration/input"
+        white={true}
+        h10_w72={true}
+        klass="mb-12"
         name="戻る"
         arrow="left"
-        link="/registration/input"
-        klass="mb-12"
       />
     </main>
   );

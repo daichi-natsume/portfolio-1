@@ -4,11 +4,7 @@ import { BrandData } from "../shared/server/brand.ts";
 import { LoginHeader } from "../components/common/Header.tsx";
 import { Title } from "../components/common/screen-title/Title.tsx";
 import { SearchBox } from "../components/common/input/SearchBox.tsx";
-import {
-  AccodionButton,
-  FreeWhiteButton,
-  WhiteButton,
-} from "../components/common/Button.tsx";
+import { AccodionButton, Button } from "../components/common/Button.tsx";
 import { BgLeading } from "../components/common/others/Leading.tsx";
 import { ApplyBrand } from "../components/common/Brand.tsx";
 import { Footer } from "../components/common/Footer.tsx";
@@ -34,10 +30,11 @@ export function ApplicationHistory(props: Props) {
         <Title title="申請履歴一覧" />
         <SearchBox />
         <div class="flex mx-4 my-4">
-          <FreeWhiteButton
+          <Button
+            white={true}
+            klass="h-10 w-1/2 mr-2"
             name="絞り込む"
-            onClickButton={props.onClickButton}
-            klass="h-10 w-1/2 mr-2 text-xs rounded"
+            onClick={props.onClickButton}
           />
           <AccodionButton
             name="表示順"
@@ -49,7 +46,13 @@ export function ApplicationHistory(props: Props) {
         <ApplyBrand brandList={data.brandDataList2} />
         <BgLeading title="2022年10月2日" />
         <ApplyBrand brandList={data.brandDataList2} />
-        <WhiteButton name="申請中のブランドをもっと見る" arrow="down" />
+        <Button
+          link="/mypage/applying"
+          white={true}
+          h10_w72={true}
+          name="申請中のブランドをもっと見る"
+          arrow="down"
+        />
       </main>
       <Footer />
     </div>

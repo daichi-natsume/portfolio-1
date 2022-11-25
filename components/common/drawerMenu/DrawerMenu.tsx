@@ -1,5 +1,5 @@
 import { DrawerMenuHeader } from "../Header.tsx";
-import { BrownButton, WhiteButton } from "../Button.tsx";
+import { Button } from "../Button.tsx";
 import { Link, LinkList } from "./Link.tsx";
 
 interface Props {
@@ -41,7 +41,12 @@ export function DrawerMenu(props: Props) {
           <p class="text-sm my-4 text-center">
             ゲスト<span class="text-2.5">さん</span>
           </p>
-          <BrownButton name="飲食フランチャイズ.comを試す" link="/registration/input" />
+          <Button
+            link="/registration/input"
+            brown={true}
+            h10_w72={true}
+            name="飲食フランチャイズ.comを試す"
+          />
           <div class="h-8" />
           <Link name="ログイン" link="/login" />
           <LinkList linkList={linkList1} />
@@ -72,7 +77,13 @@ export function LoginDrawerMenu(props: Props) {
           <LinkList linkList={linkList2} />
           <LinkList linkList={linkList3} />
           <LinkList linkList={linkList4} />
-          <WhiteButton name="ログアウト" klass="mt-10 mb-24" />
+          <Button
+            link="/"
+            white={true}
+            h10_w72={true}
+            klass="mt-10 mb-24"
+            name="ログアウト"
+          />
           <p class="text-center pb-8 text-brown text-2.5">
             @Insyoku Franchise.com 2022 All Rights Reserved
           </p>

@@ -3,7 +3,7 @@
 import { BrownHeader } from "../components/common/Header.tsx";
 import { Title } from "../components/common/screen-title/Title.tsx";
 import { HiddenInput, Input } from "../components/common/input/Input.tsx";
-import { FreeButton } from "../components/common/Button.tsx";
+import { Button } from "../components/common/Button.tsx";
 import { Footer } from "../components/common/Footer.tsx";
 
 interface Props {
@@ -42,10 +42,11 @@ export function Login(props: Props) {
             krass={pass.bg ? "bg-red" : ""}
             placeholder="半角英数字の6~20文字"
           />
-          <FreeButton
+          <Button
             link="/"
             name="ログイン"
             klass="mt-10 mb-4"
+            h10_w72={true}
             disabled={props.disabled}
           />
           <a href="/registration/input" class="text-center text-2.5">
