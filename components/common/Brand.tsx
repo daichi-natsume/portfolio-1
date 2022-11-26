@@ -91,7 +91,7 @@ export function BrandList(props: Props) {
       {props.brandList?.map((brand) => (
         <div class="mx-4 mt-2">
           <a
-            href="/brand/brand-detail"
+            href={`/brand/brand-detail/status=${brand.status}`}
             class="h-24 border rounded flex"
           >
             <img

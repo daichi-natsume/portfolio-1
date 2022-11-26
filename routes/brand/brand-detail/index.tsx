@@ -1,9 +1,9 @@
-import { BrandData, getBrandData } from "../../shared/server/brand.ts";
-import { FeatureData, getFeatureData } from "../../shared/server/feature.ts";
-import { BannerData, getBannerData } from "../../shared/server/banner.ts";
+import { BrandData, getBrandData } from "../../../shared/server/brand.ts";
+import { FeatureData, getFeatureData } from "../../../shared/server/feature.ts";
+import { BannerData, getBannerData } from "../../../shared/server/banner.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import BrandDetail from "../../islands/BrandDetail.tsx";
+import BrandDetail from "../../../islands/BrandDetail.tsx";
 
 export type AllData = FeatureData & BrandData & BannerData;
 

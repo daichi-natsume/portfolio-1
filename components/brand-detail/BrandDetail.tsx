@@ -1,6 +1,6 @@
 //ブランド詳細画面の要素をまとめたコンポーネント
 
-import { AllData } from "../../routes/brand/brand-detail.tsx";
+import { AllData } from "../../routes/brand/brand-detail/index.tsx";
 import { LoginHeader } from "../common/Header.tsx";
 import BrandPhoto from "../../components/brand-detail/BrandPhoto.tsx";
 import { Button } from "../common/Button.tsx";

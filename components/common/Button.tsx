@@ -31,13 +31,16 @@ export function Button(props: Props) {
     }
   };
 
-  const disable = () => {
-    if (!props.disabled) {
-      return "text-white bg-lightgray";
-    } else {
-      "text-white bg-brown";
-    }
+  //todo:props.color
+  const colors = {
+    white: {
+      color: "text-brown bg-white border border-brown",
+      left: "/icon/common/arrow/brownLeft.png",
+    },
   };
+
+  //const color = colors[props.color];
+
   return (
     <button
       class={`flex items-center text-center text-xs

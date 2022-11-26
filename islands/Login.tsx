@@ -1,10 +1,11 @@
 //todo:ヒストリーバックした時にメールアドレスなどの情報が残る
 
 import { useState } from "preact/hooks";
+import { fetchCors } from "../shared/fetch.ts";
 import { Login } from "../components/Login.tsx";
 
 export default function islands() {
-  const [error] = useState("");
+  const [error, setError] = useState("");
   const [mail, setMail] = useState({
     value: "",
     error: "",
@@ -18,6 +19,21 @@ export default function islands() {
     bg: false,
   });
 
+  const onLogin = async (evt: Event) => {
+    evt.preventDefault();
+    const body = {
+      mail: mail.value,
+      pass: pass.value,
+    };
+    try {
+      //disabledにする
+      await fetchCors("login", "post", body);
+      location.href = "/";
+    } catch (e) {
+      setError("メールアドレスもしくはパスワードが間違っています");
+    }
+  };
+
   const onMail = (e: Event) => {
     const value = (e.target as HTMLInputElement).value;
     const regex =
@@ -25,7 +41,7 @@ export default function islands() {
     if (regex.test(value)) {
       setMail({
         value,
-        error,
+        error: "",
         dirty: true,
         bg: false,
       });
@@ -54,7 +70,7 @@ export default function islands() {
     if (regex.test(value)) {
       setPass({
         value,
-        error,
+        error: "",
         dirty: true,
         bg: false,
       });
@@ -94,6 +110,8 @@ export default function islands() {
       onMail={onMail}
       onPass={onPass}
       disabled={disabled()}
+      onClick={onLogin}
+      error={error}
     />
   );
 }

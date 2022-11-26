@@ -11,7 +11,9 @@ interface Props {
   pass: { value: string; error: string; dirty: boolean; bg: boolean };
   onMail: (e: Event) => void;
   onPass: (e: Event) => void;
+  onClick: (e: Event) => void;
   disabled: boolean;
+  error: string;
 }
 
 export function Login(props: Props) {
@@ -22,6 +24,7 @@ export function Login(props: Props) {
       <BrownHeader />
       <main>
         <Title title="ログイン" />
+        <span>{props.error}</span>
         <div class="mx-8 text-2.5">
           <p class="mt-8 text-2.5">
             メールアドレス
@@ -43,11 +46,11 @@ export function Login(props: Props) {
             placeholder="半角英数字の6~20文字"
           />
           <Button
-            link="/"
             name="ログイン"
             klass="mt-10 mb-4"
             h10_w72={true}
             disabled={props.disabled}
+            onClick={props.onClick}
           />
           <a href="/registration/input" class="text-center text-2.5">
             <p>初めてのご利用の方（新規会員登録）</p>
