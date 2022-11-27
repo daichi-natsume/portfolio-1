@@ -2,12 +2,8 @@
 
 import { useState } from "preact/hooks";
 
-interface Props {
-  num?: number;
-}
-
 //丸枠で囲まれたお気に入りアイコン
-export function Favorite(props: Props) {
+export function Favorite() {
   const [fav, setFav] = useState(true);
   const FavFunction = () => {
     if (fav) {
@@ -32,6 +28,9 @@ export function Favorite(props: Props) {
 }
 
 //丸枠で囲まれたお気に入りアイコンとお気に入りされた数を表示
+interface Props {
+  num: number;
+}
 export function FavoriteNum(props: Props) {
   const [fav, setFav] = useState(true);
   const FavFunction = () => {
@@ -54,7 +53,7 @@ export function FavoriteNum(props: Props) {
           class="w-6 h-6 my-1"
           onClick={FavFunction}
         />
-        <p class="text-2.5">{fav ? props.num! - 1 : props.num}</p>
+        <p class="text-2.5">{fav ? props.num - 1 : props.num}</p>
       </div>
     </div>
   );
