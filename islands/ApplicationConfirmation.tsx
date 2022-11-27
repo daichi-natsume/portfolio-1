@@ -37,7 +37,7 @@ export default function islands() {
         </div>
         <Button
           link="/brand/application/completion"
-          brown={true}
+          color="brown"
           h10_w72={true}
           klass="my-12"
           name="申請する"
@@ -53,14 +53,14 @@ export default function islands() {
         </div>
         <Button
           link="/brand/application/completion"
-          brown={true}
+          color="brown"
           h10_w72={true}
           klass="mt-12 mb-2"
           name="申請する"
         />
         <Button
           link="/brand/brand-detail"
-          white={true}
+          color="white"
           h10_w72={true}
           klass="mb-12"
           name="戻る"

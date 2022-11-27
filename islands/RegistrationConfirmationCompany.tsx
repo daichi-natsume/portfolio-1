@@ -39,14 +39,14 @@ export default function islands() {
       </div>
       <Button
         link="/registration/completion"
-        brown={true}
+        color="brown"
         h10_w72={true}
         klass="mt-12 mb-2"
         name="登録する"
       />
       <Button
         link="/registration/input"
-        white={true}
+        color="white"
         h10_w72={true}
         klass="mb-12"
         name="戻る"

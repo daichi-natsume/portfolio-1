@@ -36,7 +36,7 @@ export function Mypage(props: Props) {
         <p class="text-center my-4">グルメ商店さま</p>
         <Button
           link="/mypage/under-contract"
-          gray={true}
+          color="gray"
           h10_w72={true}
           klass="mb-2"
           name="契約中ブランド一覧"
@@ -44,7 +44,7 @@ export function Mypage(props: Props) {
         />
         <Button
           link="/mypage/applying"
-          gray={true}
+          color="gray"
           h10_w72={true}
           klass="mb-2"
           name="申請中ブランド一覧"

@@ -2,107 +2,98 @@ import { useState } from "preact/hooks";
 
 interface Props {
   link?: string; //ボタン内にリンクを付ける際に使用
-  white?: boolean; //茶色の枠・白背景のボタンを作る時に使用
-  brown?: boolean; //茶色背景のボタンを作る時に使用
-  gray?: boolean; //グレーの枠・白背景のボタンを作る時に使用
-  disabled?: boolean; //disiabledを使いたい時に使用
   h10_w72?: boolean; //h-10,w-72のサイズを指定する時に使用（基本は使う）
   no_mx_auto?: boolean; //mx-autoが不要な時に使用
   rounded_full?: boolean; //rounded-fullを使いたい時に使用
   klass?: string; //追加でCSSを入れたい時に使用
   name?: string; //ボタン内に文字を表示する際に使用
-  arrow?: "left" | "right" | "down"; //矢印を出したいときに使う。white,brown,gray,disabledのいずれかと併用する
   onClick?: (e: Event) => void;
-
-  list?: string[]; //アコーディオンボタンの項目を詰める際に使用
-
-  buttonList?: { //ラジオボタンを出す時に使用
-    name: string;
-    label: string;
-    checked?: boolean; //デフォルトで選択させたいときに使用する
-    onClick?: () => void;
-  }[];
 }
 
-export function Button(props: Props) {
+interface PropsColor extends Props {
+  color: "white" | "brown" | "gray" | "disabled"; //buttonの色を管理する
+  arrow?: "left" | "right" | "down"; //矢印を出したいときに使う。colorと併用する
+  disabled?: boolean; //disiabledを使いたい時に使用
+}
+export function Button(props: PropsColor) {
   const onClick = (e: Event) => {
     if (!props.disabled) {
       location.href = props.link!;
     }
   };
 
-  //todo:props.color
   const colors = {
     white: {
       color: "text-brown bg-white border border-brown",
       left: "/icon/common/arrow/brownLeft.png",
+      right: "/icon/common/arrow/brownRight.png",
+      down: "/icon/common/arrow/brownDown.png",
+    },
+    brown: {
+      color: "text-white bg-brown",
+      left: "/icon/common/arrow/whiteLeft.png",
+      right: "/icon/common/arrow/whiteRight.png",
+      down: "",
+    },
+    gray: {
+      color: "text-gray bg-white border border-gray",
+      left: "/icon/common/arrow/grayLeft.png",
+      right: "/icon/common/arrow/grayRight.png",
+      down: "",
+    },
+    disabled: {
+      color: "text-white bg-lightgray",
+      left: "/icon/common/arrow/whiteLeft.png",
+      right: "/icon/common/arrow/whiteRight.png",
+      down: "",
     },
   };
 
-  //const color = colors[props.color];
+  const color = colors[props.color!];
+  const arrow = props.arrow;
 
   return (
     <button
       class={`flex items-center text-center text-xs
-      ${props.white ? "text-brown bg-white border border-brown" : ""}
-      ${props.brown || !props.disabled ? "text-white bg-brown" : ""}
-      ${props.gray ? "text-gray bg-white border border-gray" : ""}
-      ${props.disabled ? "text-white bg-lightgray" : ""}
+      ${color.color}
       ${props.h10_w72 ? "h-10 w-72" : ""}
       ${props.no_mx_auto ? "" : "mx-auto"}
       ${props.rounded_full ? "rounded-full" : "rounded"}
-      ${props.klass ? props.klass : ""}`}
-      //props.disabled=falseの場合はprops.brownと同じデザイン
-      //klassではwidth,height,margin,paddingなどを設定
+      ${props.klass ? props.klass : ""}`} //klassではwidth,height,margin,paddingなどを設定
       onClick={props.onClick != null || undefined ? props.onClick : onClick}
       disabled={props.disabled}
     >
-      {props.arrow == "left"
+      {arrow == "left"
         ? (
           <img
-            src={`
-            ${props.white ? "/icon/common/arrow/brownLeft.png" : ""}
-            ${props.brown ? "/icon/common/arrow/whiteLeft.png" : ""}
-            ${props.gray ? "/icon/common/arrow/grayLeft.png" : ""}`}
+            src={color.left}
             alt="左矢印"
             class="h-2 w-2 ml-4"
           />
         )
         : null}
-      {props.arrow == "right" || props.arrow == "down"
-        ? <div class="w-6" />
-        : null}
+      {arrow == "right" || arrow == "down" ? <div class="w-6" /> : null}
       <p class="flex-1">{props.name}</p>
-      {props.arrow == "right"
+      {arrow == "right" || arrow == "down"
         ? (
           <img
-            src={`
-            ${props.white ? "/icon/common/arrow/brownRight.png" : ""}
-            ${props.brown ? "/icon/common/arrow/whiteRight.png" : ""}
-            ${props.gray ? "/icon/common/arrow/grayRight.png" : ""}
-            `}
-            alt="右矢印"
+            src={arrow == "right" ? color.right : color.down}
+            alt={arrow == "right" ? "右矢印" : "下矢印"}
             class="h-2 w-2 mr-4"
           />
         )
         : null}
-      {props.arrow == "down"
-        ? (
-          <img
-            src={`${props.white ? "/icon/common/arrow/brownDown.png" : ""}`}
-            alt="下矢印"
-            class="h-2 w-2 mr-4"
-          />
-        )
-        : null}
-      {props.arrow == "left" ? <div class="w-6" /> : null}
+      {arrow == "left" ? <div class="w-6" /> : null}
     </button>
   );
 }
 
 //アコーディオンタイプのボタンを表示したい時に使う
 //todo:アコーディオンを開くと高さが微妙に変わる
-export function AccodionButton(props: Props) {
+interface PropsAccodion extends Props {
+  list?: string[]; //アコーディオンボタンの項目を詰める際に使用
+}
+export function AccodionButton(props: PropsAccodion) {
   const [open, setOpen] = useState(false);
   const [accodion, setAccodion] = useState(false);
 
@@ -156,7 +147,15 @@ export function AccodionButton(props: Props) {
 }
 
 //単一選択をさせたいときに使用する
-export function RadioButton(props: Props) {
+interface PropsRadio extends Props {
+  buttonList?: { //ラジオボタンを出す時に使用
+    name: string;
+    label: string;
+    checked?: boolean; //デフォルトで選択させたいときに使用する
+    onClick?: () => void;
+  }[];
+}
+export function RadioButton(props: PropsRadio) {
   return (
     <div class={`flex ${props.klass ? props.klass : null}`}>
       {props.buttonList?.map((button) => (

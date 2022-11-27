@@ -51,6 +51,7 @@ export function Login(props: Props) {
             h10_w72={true}
             disabled={props.disabled}
             onClick={props.onClick}
+            color={props.disabled ? "disabled" : "brown"}
           />
           <a href="/registration/input" class="text-center text-2.5">
             <p>初めてのご利用の方（新規会員登録）</p>

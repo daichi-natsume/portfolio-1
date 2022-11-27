@@ -43,7 +43,7 @@ export function DrawerMenu(props: Props) {
           </p>
           <Button
             link="/registration/input"
-            brown={true}
+            color="brown"
             h10_w72={true}
             name="飲食フランチャイズ.comを試す"
           />
@@ -79,7 +79,7 @@ export function LoginDrawerMenu(props: Props) {
           <LinkList linkList={linkList4} />
           <Button
             link="/"
-            white={true}
+            color="white"
             h10_w72={true}
             klass="mt-10 mb-24"
             name="ログアウト"

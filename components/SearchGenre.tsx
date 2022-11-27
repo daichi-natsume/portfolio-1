@@ -33,7 +33,7 @@ export function SearchGenre(props: Props) {
         />
         <div class="flex mx-4 my-4">
           <Button
-            white={true}
+            color="white"
             klass="h-10 w-1/2 mr-2"
             name="絞り込む"
             onClick={props.onClickButton}
@@ -41,7 +41,6 @@ export function SearchGenre(props: Props) {
           <AccodionButton
             name="表示順"
             list={sortOrderList}
-            Accodion={props.Accodion}
           />
         </div>
         <ResultBrand brandList={data.brandDataList3} />

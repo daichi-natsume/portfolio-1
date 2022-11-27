@@ -39,7 +39,7 @@ export function FavBrand(props: Props) {
           <p class="my-0.5 text-2.5">ジャンル：{props.genre}</p>
           <Button
             link="brand/application/confirmation"
-            brown={true}
+            color="brown"
             klass="h-6 w-11/12 text-2.5"
             name="申請する"
           />
@@ -129,7 +129,7 @@ export function ResultBrand(props: Props) {
           <ScrollBrandPhotos imgs={list.imgs} />
           <Button
             link="/brand/brand-detail"
-            brown={true}
+            color="brown"
             h10_w72={true}
             klass="mb-4"
             name="ブランド詳細ページへ"
@@ -162,7 +162,7 @@ export function TripleBrand(props: Props) {
             <div class="flex items-center justify-center my-2">
               <Button
                 link="/brand/application/confirmation"
-                brown={true}
+                color="brown"
                 klass="h-6 w-20 text-2.5"
                 name="申請する"
               />
@@ -208,7 +208,7 @@ export function FavTripleBrand(props: Props) {
               : (
                 <Button
                   link="/brand/application/confirmation"
-                  brown={true}
+                  color="brown"
                   klass="h-6 w-5/6 my-2"
                   name="申請する"
                 />
@@ -218,7 +218,7 @@ export function FavTripleBrand(props: Props) {
                 <div class="flex items-center justify-center my-2">
                   <Button
                     link="/brand/application/confirmation"
-                    brown={true}
+                    color="brown"
                     klass="h-6 w-20 text-2.5"
                     name="申請する"
                   />
@@ -270,7 +270,7 @@ export function ApplyBrand(props: Props) {
             ? (
               <Button
                 link="/brand/contract/confirmation"
-                brown={true}
+                color="brown"
                 h10_w72={true}
                 klass="mb-2"
                 name="フランチャイズ契約する"
@@ -283,7 +283,7 @@ export function ApplyBrand(props: Props) {
                 link={brand.status == 0 || brand.status == 1
                   ? "/brand/cancel/confirmation"
                   : "/brand/cancel-contract/confirmation"}
-                white={true}
+                color="white"
                 klass="w-72 h-6 mb-2"
                 name={statusList[brand.status].button}
               />
@@ -293,7 +293,7 @@ export function ApplyBrand(props: Props) {
             ? (
               <Button
                 link="/brand/application/confirmation"
-                brown={true}
+                color="brown"
                 h10_w72={true}
                 klass="mb-2"
                 name={statusList[brand.status].button}

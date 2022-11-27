@@ -15,7 +15,7 @@ export default function islands() {
         <CompMsg compMsg={msg} />
         <Button
           link="/"
-          brown={true}
+          color="brown"
           h10_w72={true}
           name="トップページへ"
           klass="mb-2"
@@ -23,7 +23,7 @@ export default function islands() {
         />
         <Button
           link="/mypage"
-          white={true}
+          color="white"
           h10_w72={true}
           name="マイページへ"
           arrow="right"

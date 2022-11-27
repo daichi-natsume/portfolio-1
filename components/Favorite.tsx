@@ -56,7 +56,7 @@ export function Favorite(props: Props) {
         <PageNation displayNumStart={2} displayNumEnd={3} />
         <Button
           link="/"
-          white={true}
+          color="white"
           h10_w72={true}
           klass="mt-4"
           name="もっとブランドを探す"

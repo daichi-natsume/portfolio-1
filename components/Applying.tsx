@@ -35,7 +35,7 @@ export function Applying(props: Props) {
         <BgLeading title="2022年10月25日" />
         <ApplyBrand brandList={data.brandDataList} />
         <Button
-          white={true}
+          color="white"
           h10_w72={true}
           klass="mt-4"
           name="申請中のブランドをもっと見る"

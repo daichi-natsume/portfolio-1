@@ -64,7 +64,8 @@ export class Top extends Component<Props, AllData> {
           <Leading title="特集コンテンツ" />
           <FeatureContents />
           <Button
-            white={true}
+            link="/"
+            color="white"
             h10_w72={true}
             klass="mt-4"
             name="特集コンテンツをもっと見る"

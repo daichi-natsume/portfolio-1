@@ -102,7 +102,7 @@ export default function islands() {
           <div class="flex">
             <Input placeholder="0000000" klass="ml-8 mr-2 w-24" />
             <Button
-              brown={true}
+              color="brown"
               no_mx_auto={true}
               klass="h-10 w-24"
               name="住所検索"
@@ -157,6 +157,7 @@ export default function islands() {
           klass="my-12"
           h10_w72={true}
           disabled={true}
+          color="disabled"
         />
       </main>
     </>

@@ -15,7 +15,6 @@ interface Props {
   data: BrandData;
   onClick: (e: Event) => void;
   onClickButton: (e: Event) => void;
-  Accodion?: (e: Event) => void;
 }
 
 export function ApplicationHistory(props: Props) {
@@ -31,7 +30,7 @@ export function ApplicationHistory(props: Props) {
         <SearchBox />
         <div class="flex mx-4 my-4">
           <Button
-            white={true}
+            color="white"
             klass="h-10 w-1/2 mr-2"
             name="絞り込む"
             onClick={props.onClickButton}
@@ -39,7 +38,6 @@ export function ApplicationHistory(props: Props) {
           <AccodionButton
             name="表示順"
             list={sortOrderList}
-            Accodion={props.Accodion}
           />
         </div>
         <BgLeading title="2022年10月25日" />
@@ -48,7 +46,7 @@ export function ApplicationHistory(props: Props) {
         <ApplyBrand brandList={data.brandDataList2} />
         <Button
           link="/mypage/applying"
-          white={true}
+          color="white"
           h10_w72={true}
           name="申請中のブランドをもっと見る"
           arrow="down"

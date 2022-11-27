@@ -28,7 +28,7 @@ export function BrandDetail(props: Props) {
         <BrandInfo data={data.brandDataList4} />
         <Button
           link="/brand/application/confirmation"
-          brown={true}
+          color="brown"
           h10_w72={true}
           klass="my-12"
           name="申請手続きへ"
@@ -39,7 +39,7 @@ export function BrandDetail(props: Props) {
         <BrandList brandList={data.brandDataList} />
         <Button
           link="/mypage/browsing-history"
-          white={true}
+          color="white"
           h10_w72={true}
           klass="mt-4 mb-12"
           name="最近見たブランドをもっと見る"
