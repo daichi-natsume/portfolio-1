@@ -13,32 +13,35 @@ interface Props {
   onPass: (e: Event) => void;
   onClick: (e: Event) => void;
   disabled: boolean;
-  error: string;
+  authError: string;
 }
 
 export function Login(props: Props) {
   const mail = props.mail;
   const pass = props.pass;
+  const authError = props.authError;
   return (
     <>
       <BrownHeader />
       <main>
         <Title title="ログイン" />
-        <span>{props.error}</span>
-        <div class="mx-8 text-2.5">
-          <p class="mt-8 text-2.5">
-            メールアドレス
-          </p>
-          <span class="my-1 text-2.5 text-red">{mail.error}</span>
+        {authError
+          ? (
+            <div class="h-14 mx-8 mt-8 mb-4 rounded flex items-center text-2.5 text-red bg-red">
+              <p class="w-full ml-4">{authError}</p>
+            </div>
+          )
+          : null}
+        <div class={`mx-8 text-2.5 ${authError ? "" : "mt-8"}`}>
+          <p>メールアドレス</p>
+          {mail.error ? <span class="my-1 text-red">{mail.error}</span> : null}
           <Input
             onInput={props.onMail}
             klass={`w-full my-1 mb-4 ${mail.bg ? "bg-red" : null}`}
             placeholder="insyoku.franchise@insyoku.co.jp"
           />
-          <p class="text-2.5">
-            パスワード
-          </p>
-          <span class="my-1 text-2.5 text-red">{pass.error}</span>
+          <p>パスワード</p>
+          {pass.error ? <span class="my-1 text-red">{pass.error}</span> : null}
           <HiddenInput
             onInput={props.onPass}
             klass="w-full my-1"
@@ -53,7 +56,7 @@ export function Login(props: Props) {
             onClick={props.onClick}
             color={props.disabled ? "disabled" : "brown"}
           />
-          <a href="/registration/input" class="text-center text-2.5">
+          <a href="/registration/input" class="text-center">
             <p>初めてのご利用の方（新規会員登録）</p>
           </a>
         </div>

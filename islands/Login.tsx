@@ -5,7 +5,7 @@ import { fetchCors } from "../shared/fetch.ts";
 import { Login } from "../components/Login.tsx";
 
 export default function islands() {
-  const [error, setError] = useState("");
+  const [authError, setAuthError] = useState("");
   const [mail, setMail] = useState({
     value: "",
     error: "",
@@ -30,7 +30,7 @@ export default function islands() {
       await fetchCors("login", "post", body);
       location.href = "/";
     } catch (e) {
-      setError("メールアドレスもしくはパスワードが間違っています");
+      setAuthError("メールアドレスもしくはパスワードが間違っています");
     }
   };
 
@@ -111,7 +111,7 @@ export default function islands() {
       onPass={onPass}
       disabled={disabled()}
       onClick={onLogin}
-      error={error}
+      authError={authError}
     />
   );
 }
