@@ -7,8 +7,8 @@ import { Button } from "../components/common/Button.tsx";
 import { Footer } from "../components/common/Footer.tsx";
 
 interface Props {
-  mail: { value: string; error: string; dirty: boolean; bg: boolean };
-  pass: { value: string; error: string; dirty: boolean; bg: boolean };
+  mailError: string;
+  passError: string;
   onMail: (e: Event) => void;
   onPass: (e: Event) => void;
   onClick: (e: Event) => void;
@@ -17,8 +17,8 @@ interface Props {
 }
 
 export function Login(props: Props) {
-  const mail = props.mail;
-  const pass = props.pass;
+  const mailError = props.mailError;
+  const passError = props.passError;
   const authError = props.authError;
   return (
     <>
@@ -34,18 +34,18 @@ export function Login(props: Props) {
           : null}
         <div class={`mx-8 text-2.5 ${authError ? "" : "mt-8"}`}>
           <p>メールアドレス</p>
-          {mail.error ? <span class="my-1 text-red">{mail.error}</span> : null}
+          {mailError ? <span class="my-1 text-red">{mailError}</span> : null}
           <Input
             onInput={props.onMail}
-            klass={`w-full my-1 mb-4 ${mail.bg ? "bg-red" : null}`}
+            klass={`w-full my-1 mb-4 ${mailError ? "bg-red" : null}`}
             placeholder="insyoku.franchise@insyoku.co.jp"
           />
           <p>パスワード</p>
-          {pass.error ? <span class="my-1 text-red">{pass.error}</span> : null}
+          {passError ? <span class="my-1 text-red">{passError}</span> : null}
           <HiddenInput
             onInput={props.onPass}
             klass="w-full my-1"
-            krass={pass.bg ? "bg-red" : ""}
+            krass={passError ? "bg-red" : ""}
             placeholder="半角英数字の6~20文字"
           />
           <Button
