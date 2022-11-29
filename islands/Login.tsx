@@ -19,6 +19,7 @@ export default function islands() {
       setDisabled(isValid(value, pass, true));
     } else {
       setMailError(value ? "正しい形式のメールアドレスを入力してください" : "メールアドレスが入力されていません。");
+      setDisabled(true);
     }
   };
 
@@ -33,6 +34,7 @@ export default function islands() {
       setDisabled(isValid(mail, value, true));
     } else {
       setPassError(value ? "6~20文字の半角英数字で入力してください。" : "パスワードが入力されていません。");
+      setDisabled(true);
     }
   };
 
