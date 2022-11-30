@@ -9,7 +9,7 @@ export function PageNation(props: Props) {
   return (
     <div
       class={`h-10 flex items-center text-center px-4 mt-10 border-y ${
-        props.klass ? props.klass : null
+        props.klass ? props.klass : ""
       }`}
     >
       <a href="">

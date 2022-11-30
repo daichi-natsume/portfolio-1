@@ -148,21 +148,22 @@ export function AccodionButton(props: PropsAccodion) {
 
 //単一選択をさせたいときに使用する
 interface PropsRadio extends Props {
+  radioName: string;
   buttonList?: { //ラジオボタンを出す時に使用
-    name: string;
     label: string;
     checked?: boolean; //デフォルトで選択させたいときに使用する
     onClick?: () => void;
   }[];
+  label?: string[];
 }
 export function RadioButton(props: PropsRadio) {
   return (
-    <div class={`flex ${props.klass ? props.klass : null}`}>
+    <div class={`flex ${props.klass ? props.klass : ""}`}>
       {props.buttonList?.map((button) => (
         <label class="flex items-center ml-8 text-2.5">
           <input
             type="radio"
-            name={button.name}
+            name={props.radioName}
             class="w-3 h-3 rounded-full
                   border mr-1 accent-brown"
             required
@@ -170,6 +171,19 @@ export function RadioButton(props: PropsRadio) {
             onClick={button.onClick}
           />
           {button.label}
+        </label>
+      ))}
+
+      {props.label?.map((label) => (
+        <label class="flex items-center ml-8 text-2.5">
+          <input
+            type="radio"
+            name={props.radioName}
+            class="w-3 h-3 rounded-full
+                border mr-1 accent-brown"
+            required
+          />
+          {label}
         </label>
       ))}
     </div>

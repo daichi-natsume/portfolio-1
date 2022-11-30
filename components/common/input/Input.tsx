@@ -14,7 +14,7 @@ interface Props {
 export function Input(props: Props) {
   return (
     <input
-      class={`pl-2 h-10 rounded border ${props.klass ? props.klass : null}`}
+      class={`pl-2 h-10 rounded border ${props.klass ? props.klass : ""}`}
       placeholder={props.placeholder}
       onInput={props.onInput}
     />
@@ -29,8 +29,9 @@ export function WInput(props: Props) {
         <input
           placeholder={input}
           class={`mr-2 pl-2 w-32 h-10 rounded border ${
-            props.klass ? props.klass : null
+            props.klass ? props.klass : ""
           }`}
+          onInput={props.onInput}
         />
       ))}
     </div>
@@ -49,13 +50,13 @@ export function HiddenInput(props: Props) {
   };
   return (
     <div
-      class={`h-10 relative ${props.klass ? props.klass : null}`}
+      class={`h-10 relative ${props.klass ? props.klass : ""}`}
       onInput={props.onInput}
     >
       <input
         type={`${hidden ? "password" : "text"}`}
         class={`pl-2 h-10 w-full rounded border absolute ${
-          props.krass ? props.krass : null
+          props.krass ? props.krass : ""
         }`}
         placeholder={props.placeholder}
       />
@@ -80,7 +81,7 @@ export function Checkbox(props: Props) {
       <input
         type="checkbox"
         class={`w-4 h-4 bg-white accent-brown ${
-          props.klass ? props.klass : null
+          props.klass ? props.klass : ""
         }`}
         checked={props.checked}
       />

@@ -18,9 +18,9 @@ interface Props {
 export function Applying(props: Props) {
   const data = props.data;
   const buttonList = [
-    { name: "status", label: "すべて", checked: true },
-    { name: "status", label: "申請中" },
-    { name: "status", label: "契約可能" },
+    { label: "すべて", checked: true },
+    { label: "申請中" },
+    { label: "契約可能" },
   ];
 
   return (
@@ -29,7 +29,7 @@ export function Applying(props: Props) {
       <main>
         <Title title="申請中ブランド一覧" />
         <SearchBox />
-        <RadioButton buttonList={buttonList} klass="my-4" />
+        <RadioButton buttonList={buttonList} radioName="status" klass="my-4" />
         <BgLeading title="2022年10月25日" />
         <ApplyBrand brandList={data.brandDataList} />
         <BgLeading title="2022年10月25日" />
