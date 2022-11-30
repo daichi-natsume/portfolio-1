@@ -16,9 +16,11 @@ export default function islands() {
     if (regex.test(value)) {
       setMail(value);
       setMailError("");
-      setDisabled(isValid(value, pass, true));
+      console.log("mail:" + value);
+      setDisabled(isValid(value, pass));
     } else {
-      setMailError(value ? "正しい形式のメールアドレスを入力してください" : "メールアドレスが入力されていません。");
+      setMail("");
+      setMailError(value ? "正しい形式のメールアドレスを入力してください。" : "メールアドレスが入力されていません。");
       setDisabled(true);
     }
   };
@@ -31,8 +33,9 @@ export default function islands() {
     if (regex.test(value)) {
       setPass(value);
       setPassError("");
-      setDisabled(isValid(mail, value, true));
+      setDisabled(isValid(mail, value));
     } else {
+      setPass("");
       setPassError(value ? "6~20文字の半角英数字で入力してください。" : "パスワードが入力されていません。");
       setDisabled(true);
     }
@@ -41,9 +44,8 @@ export default function islands() {
   const isValid = (
     value1: string,
     value2: string,
-    dirty: boolean,
   ) => {
-    if (dirty && value1 != "" && value2 != "") {
+    if (value1 != "" && value2 != "") {
       return false;
     } else {
       return true;
