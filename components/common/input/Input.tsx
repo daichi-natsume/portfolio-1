@@ -8,6 +8,7 @@ interface Props {
   krass?: string; //klassを使った親要素を持つ子要素に任意のclassを指定したいときに使用
   inputList?: string[];
   onInput?: (e: Event) => void;
+  onClick?: (e: Event) => void;
 }
 
 //通常の入力ボタン
@@ -18,23 +19,6 @@ export function Input(props: Props) {
       placeholder={props.placeholder}
       onInput={props.onInput}
     />
-  );
-}
-
-//横並びで2個入力ボックスが並ぶ場合に使う
-export function WInput(props: Props) {
-  return (
-    <div class="ml-8 flex">
-      {props.inputList?.map((input) => (
-        <input
-          placeholder={input}
-          class={`mr-2 pl-2 w-32 h-10 rounded border ${
-            props.klass ? props.klass : ""
-          }`}
-          onInput={props.onInput}
-        />
-      ))}
-    </div>
   );
 }
 
@@ -83,7 +67,7 @@ export function Checkbox(props: Props) {
         class={`w-4 h-4 bg-white accent-brown ${
           props.klass ? props.klass : ""
         }`}
-        checked={props.checked}
+        onClick={props.onClick}
       />
       {props.msg ? <p>{props.msg}</p> : null}
     </div>

@@ -155,6 +155,7 @@ interface PropsRadio extends Props {
     onClick?: () => void;
   }[];
   label?: string[];
+  onInput?: (e: Event) => void;
 }
 export function RadioButton(props: PropsRadio) {
   return (
@@ -182,6 +183,7 @@ export function RadioButton(props: PropsRadio) {
             class="w-3 h-3 rounded-full
                 border mr-1 accent-brown"
             required
+            onInput={props.onInput}
           />
           {label}
         </label>
